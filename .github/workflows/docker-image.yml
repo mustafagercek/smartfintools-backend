@@ -23,7 +23,7 @@ jobs:
       run: ./gradlew clean build
     - name: Build and push the Docker image
       env:
-          IMAGE_TAG: smartfintools-backend:$(date +%s)
+        IMAGE_TAG: smartfintools-backend:$(date +%s)
       run: |
         docker build . --file Dockerfile --tag $IMAGE_TAG
         docker push $IMAGE_TAG
