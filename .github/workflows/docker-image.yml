@@ -7,13 +7,20 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
+    - name: Set up JDK 18
+      uses: actions/setup-java@v2
+      with:
+        java-version: '18'
+        distribution: 'temurin'
+    - name: Grant execute permission for gradlew
+      run: chmod +x ./gradlew
+    - name: Clean and build the project
+      run: ./gradlew clean build
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag smartfintools-backend:$(date +%s)
     - name: Push the Docker image
