@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    image: muki1992/smartfintools:latest
+    image: muki1992/smartfintools-backend:latest
     build:
       context: .
     container_name: smartfintools-backend
@@ -18,7 +18,7 @@ services:
 
   db:
     image: postgres:13.1-alpine
-    container_name: postgres_db
+    container_name: smartfintools-database
     environment:
       POSTGRES_DB: dbsmartfintools
       POSTGRES_USER: postgres
