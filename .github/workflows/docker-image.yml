@@ -21,7 +21,9 @@ jobs:
       run: chmod +x ./gradlew
     - name: Clean and build the project
       run: ./gradlew clean build
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag smartfintools-backend:$(date +%s)
-    - name: Push the Docker image
-      run: docker push smartfintools-backend:$(date +%s)
+    - name: Build and push the Docker image
+      env:
+        IMAGE_TAG: smartfintools-backend:$(date +%s)
+      run: 
+        docker build . --file Dockerfile --tag $IMAGE_TAG
+        docker push $IMAGE_TAG
