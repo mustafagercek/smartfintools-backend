@@ -43,4 +43,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: muki1992/smartfintools-backend:latest
-          platforms: linux/amd64,linux/arm64/v8
+          platforms: linux/arm64/v8
+
