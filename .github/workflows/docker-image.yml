@@ -22,8 +22,6 @@ jobs:
     - name: Clean and build the project
       run: ./gradlew clean build
     - name: Build and push the Docker image
-      env:
-        IMAGE_TAG: smartfintools-backend:$(date +%s)
       run: |
-        docker build . --file Dockerfile --tag $IMAGE_TAG
-        docker push $IMAGE_TAG
+        docker build . --file Dockerfile --tag muki1992/smartfintools-backend
+        docker push muki1992/smartfintools-backend
