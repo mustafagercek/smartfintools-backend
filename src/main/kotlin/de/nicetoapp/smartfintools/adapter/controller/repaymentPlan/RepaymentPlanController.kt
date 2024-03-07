@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @Suppress("unused")
 @RestController
-@RequestMapping("/repayment-plan")
+@RequestMapping("api/repayment-plan")
 class RepaymentPlanController {
 
     @PostMapping

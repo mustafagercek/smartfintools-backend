@@ -20,7 +20,7 @@ services:
 
   db:
     image: postgres:13.1-alpine
-    container_name: smartfintools-database
+    container_name: prod-smartfintools-database
     environment:
       POSTGRES_DB: dbsmartfintools
       POSTGRES_USER: postgres
