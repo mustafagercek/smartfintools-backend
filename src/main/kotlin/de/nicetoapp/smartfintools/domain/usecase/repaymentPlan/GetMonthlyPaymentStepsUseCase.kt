@@ -2,32 +2,37 @@ package de.nicetoapp.smartfintools.domain.usecase.repaymentPlan
 
 import de.nicetoapp.smartfintools.domain.model.loan.AnnuityLoan
 import de.nicetoapp.smartfintools.domain.model.repaymentPlan.RepaymentPlanStep
+import java.math.BigDecimal
+import java.math.RoundingMode
 import java.util.*
-import kotlin.math.round
 
 class GetMonthlyPaymentStepsUseCase {
-     fun execute(loan: AnnuityLoan): List<RepaymentPlanStep> {
+    fun execute(loan: AnnuityLoan): List<RepaymentPlanStep> {
         val stepCount = loan.years * 12
         val steps = mutableListOf<RepaymentPlanStep>()
-        var previousRemainingDebt = loan.amount
+        var previousRemainingDebt = BigDecimal(loan.amount.toString())
 
         for (i in 1..stepCount) {
             val date = loan.startDate.addMonths(i)
-            val monthlyPayment = loan.getMonthlyPayment()
-            val remainingDebt = loan.getRemainingDebt(forMonth = i)
-            val amortization = previousRemainingDebt - remainingDebt
-            val interest: Float = if (remainingDebt == 0f) previousRemainingDebt * loan.interestRate / 12.0f else monthlyPayment - amortization
-            
+            val monthlyPayment = BigDecimal(loan.getMonthlyPayment().toString())
+            val remainingDebt = BigDecimal(loan.getRemainingDebt(forMonth = i).toString())
+            val amortization = previousRemainingDebt.subtract(remainingDebt).setScale(2, RoundingMode.HALF_UP)
+            val interest: BigDecimal = if (remainingDebt == BigDecimal.ZERO) {
+                previousRemainingDebt.multiply(BigDecimal(loan.interestRate.toString())).divide(BigDecimal("12"), 2, RoundingMode.HALF_UP)
+            } else {
+                monthlyPayment.subtract(amortization).setScale(2, RoundingMode.HALF_UP)
+            }
+
             steps.add(
                 RepaymentPlanStep(
                     date = date,
-                    amortization = round(amortization),
+                    amortization = amortization,
                     interest = interest,
-                    remainingDebt = round(remainingDebt)
+                    remainingDebt = remainingDebt
                 )
             )
-            
-            if (remainingDebt == 0f) break
+
+            if (remainingDebt == BigDecimal.ZERO) break
 
             previousRemainingDebt = remainingDebt
         }

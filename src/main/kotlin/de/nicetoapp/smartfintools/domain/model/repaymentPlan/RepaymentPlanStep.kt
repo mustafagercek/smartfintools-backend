@@ -1,10 +1,11 @@
 package de.nicetoapp.smartfintools.domain.model.repaymentPlan
 
+import java.math.BigDecimal
 import java.util.Date
 
 data class RepaymentPlanStep(
     val date: Date,
-    val amortization: Float,
-    val interest: Float,
-    val remainingDebt: Float
+    val amortization: BigDecimal,
+    val interest: BigDecimal,
+    val remainingDebt: BigDecimal
 )
