@@ -1,5 +1,5 @@
 package de.nicetoapp.smartfintools.domain.model.repaymentPlan
 
-data class MonthlyRepaymentPlanResponse(
+data class RepaymentPlanStepsResponse(
     val steps: List<RepaymentPlanStep>
 )
