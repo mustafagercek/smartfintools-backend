@@ -20,7 +20,7 @@ class DatabaseInitializer(
     }
 
     private fun initializeDatabase() {
-        val cpiData = CpiParser().parseCsvToYearlyCpi("src/main/resources/static/seed_cpi.csv")
+        val cpiData = CpiParser().parseCsvToYearlyCpi("static/seed_cpi.csv")
         yearlyCpiRepository.saveAll(cpiData)
         println("Database initialized successfully.")
     }
