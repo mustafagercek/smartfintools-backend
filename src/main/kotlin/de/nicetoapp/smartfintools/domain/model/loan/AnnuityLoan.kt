@@ -1,8 +1,7 @@
-package de.nicetoapp.smartfintools.domain.model.repaymentPlan
+package de.nicetoapp.smartfintools.domain.model.loan
 
-import java.util.Date
+import java.util.*
 import kotlin.math.max
-import kotlin.math.min
 import kotlin.math.pow
 
 data class AnnuityLoan(

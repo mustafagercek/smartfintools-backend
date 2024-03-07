@@ -1,6 +1,6 @@
 package de.nicetoapp.smartfintools.domain.usecase.repaymentPlan
 
-import de.nicetoapp.smartfintools.domain.model.repaymentPlan.AnnuityLoan
+import de.nicetoapp.smartfintools.domain.model.loan.AnnuityLoan
 import de.nicetoapp.smartfintools.domain.model.repaymentPlan.RepaymentPlanStep
 import java.util.*
 import kotlin.math.round
@@ -16,13 +16,13 @@ class GetMonthlyPaymentStepsUseCase {
             val monthlyPayment = loan.getMonthlyPayment()
             val remainingDebt = loan.getRemainingDebt(forMonth = i)
             val amortization = previousRemainingDebt - remainingDebt
-            val interest = if (remainingDebt == 0f) previousRemainingDebt * loan.interestRate / 12.0 else monthlyPayment - amortization
+            val interest: Float = if (remainingDebt == 0f) previousRemainingDebt * loan.interestRate / 12.0f else monthlyPayment - amortization
             
             steps.add(
                 RepaymentPlanStep(
                     date = date,
                     amortization = round(amortization),
-                    interest = 100f,
+                    interest = interest,
                     remainingDebt = round(remainingDebt)
                 )
             )
