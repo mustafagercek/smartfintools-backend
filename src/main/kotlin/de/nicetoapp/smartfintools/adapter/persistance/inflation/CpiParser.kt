@@ -3,7 +3,6 @@ package de.nicetoapp.smartfintools.adapter.persistance.inflation
 import de.nicetoapp.smartfintools.domain.model.inflation.YearlyCPI
 import org.springframework.core.io.ClassPathResource
 import java.io.BufferedReader
-import java.io.File
 import java.io.InputStreamReader
 import java.math.BigDecimal
 
@@ -16,7 +15,6 @@ class CpiParser {
         val reader = BufferedReader(InputStreamReader(inputStream))
         reader.readLine()
         var line: String?
-        // Read and process each line of the CSV file
         while (reader.readLine().also { line = it } != null) {
             val values = line!!.split(",").map { it.trim() }
             if (values.size >= 13) {

@@ -17,11 +17,12 @@ class DatabaseInitializer(
 
     private fun clearDatabase() {
         yearlyCpiRepository.deleteAll()
+        println("Database cleared...")
     }
 
     private fun initializeDatabase() {
         val cpiData = CpiParser().parseCsvToYearlyCpi("static/seed_cpi.csv")
         yearlyCpiRepository.saveAll(cpiData)
-        println("Database initialized successfully.")
+        println("Database initialized...")
     }
 }
