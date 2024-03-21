@@ -1,7 +1,6 @@
-package de.nicetoapp.smartfintools.adapter.controller.inflation
+package de.nicetoapp.smartfintools.controller.inflation
 
-import de.nicetoapp.smartfintools.adapter.persistance.inflation.CpiRepository
-import de.nicetoapp.smartfintools.domain.model.inflation.YearlyCPI
+import de.nicetoapp.smartfintools.domain.entity.inflation.YearlyCPI
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam

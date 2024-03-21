@@ -1,7 +1,7 @@
 package de.nicetoapp.smartfintools.domain.usecase.repaymentPlan
 
-import de.nicetoapp.smartfintools.domain.model.loan.AnnuityLoan
-import de.nicetoapp.smartfintools.domain.model.repaymentPlan.RepaymentPlanStep
+import de.nicetoapp.smartfintools.domain.entity.loan.AnnuityLoan
+import de.nicetoapp.smartfintools.domain.entity.repaymentPlan.RepaymentPlanStep
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.util.*

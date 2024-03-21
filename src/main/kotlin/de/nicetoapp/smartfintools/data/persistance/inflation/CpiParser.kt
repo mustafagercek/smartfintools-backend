@@ -1,6 +1,6 @@
-package de.nicetoapp.smartfintools.adapter.persistance.inflation
+package de.nicetoapp.smartfintools.data.persistance.inflation
 
-import de.nicetoapp.smartfintools.domain.model.inflation.YearlyCPI
+import de.nicetoapp.smartfintools.domain.entity.inflation.YearlyCPI
 import org.springframework.core.io.ClassPathResource
 import java.io.BufferedReader
 import java.io.InputStreamReader

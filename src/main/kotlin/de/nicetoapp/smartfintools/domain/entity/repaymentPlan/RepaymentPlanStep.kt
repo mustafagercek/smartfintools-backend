@@ -1,4 +1,4 @@
-package de.nicetoapp.smartfintools.domain.model.repaymentPlan
+package de.nicetoapp.smartfintools.domain.entity.repaymentPlan
 
 import java.math.BigDecimal
 import java.util.Date

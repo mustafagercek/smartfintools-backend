@@ -1,4 +1,4 @@
-package de.nicetoapp.smartfintools.domain.model.loan
+package de.nicetoapp.smartfintools.domain.entity.loan
 
 import java.util.*
 import kotlin.math.max

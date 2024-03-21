@@ -1,6 +1,6 @@
-package de.nicetoapp.smartfintools.adapter.persistance.inflation
+package de.nicetoapp.smartfintools.controller.inflation
 
-import de.nicetoapp.smartfintools.domain.model.inflation.YearlyCPI
+import de.nicetoapp.smartfintools.domain.entity.inflation.YearlyCPI
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 

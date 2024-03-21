@@ -1,7 +1,7 @@
-package de.nicetoapp.smartfintools.application
+package de.nicetoapp.smartfintools.service
 
-import de.nicetoapp.smartfintools.adapter.persistance.inflation.CpiParser
-import de.nicetoapp.smartfintools.adapter.persistance.inflation.CpiRepository
+import de.nicetoapp.smartfintools.data.persistance.inflation.CpiParser
+import de.nicetoapp.smartfintools.controller.inflation.CpiRepository
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
 

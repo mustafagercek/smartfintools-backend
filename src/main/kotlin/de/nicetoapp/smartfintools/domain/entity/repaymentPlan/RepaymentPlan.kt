@@ -1,11 +1,11 @@
-package de.nicetoapp.smartfintools.domain.model.repaymentPlan
+package de.nicetoapp.smartfintools.domain.entity.repaymentPlan
 
 import java.math.BigDecimal
 
 /**
  * Represents a repayment plan with detailed financial information.
  */
-data class RepaymentPlanResponse(
+data class RepaymentPlan(
     val monthlyPayment: BigDecimal,
     val yearlyPayment: BigDecimal,
     val totalPayment: BigDecimal,

@@ -1,4 +1,4 @@
-package de.nicetoapp.smartfintools.domain.model.inflation
+package de.nicetoapp.smartfintools.domain.entity.inflation
 
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
